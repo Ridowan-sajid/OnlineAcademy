@@ -14,10 +14,10 @@ namespace DAL
         public DbSet<Community> Communities { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<StudentCommunity> StudentCommunities { get; set; }
-        public DbSet<StudentCourse> StudentCourses { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserCommunity> UserCommunities { get; set; }
+        public DbSet<UserCourse> UserCourses { get; set; }
+       /* public DbSet<Teacher> Teachers { get; set; }*/
 
 
     }

@@ -49,9 +49,9 @@ namespace BLL.Services
                 {
                     Id = cm.Id,
                     Name = cm.Name,
-                    TeacherId = cm.TeacherId,
+                    /*TeacherId = cm.TeacherId,*/
                     Price = cm.Price,
-                    StudentCourses = cm.StudentCourses,
+                    UserCourses = cm.UserCourses,
 
                 });
             }
@@ -65,9 +65,9 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                TeacherId = cm.TeacherId,
+                /*TeacherId = cm.TeacherId,*/
                 Price = cm.Price,
-                StudentCourses = cm.StudentCourses,
+                UserCourses = cm.UserCourses,
             };
         }
 
@@ -77,9 +77,9 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                TeacherId = cm.TeacherId,
+                /*TeacherId = cm.TeacherId,*/
                 Price = cm.Price,
-                StudentCourses = cm.StudentCourses,
+                UserCourses = cm.UserCourses,
             };
         }
     }

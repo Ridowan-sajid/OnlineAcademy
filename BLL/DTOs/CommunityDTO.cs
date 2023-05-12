@@ -15,7 +15,7 @@ namespace BLL.DTOs
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public virtual ICollection<StudentCommunity> StudentCommunities { get; set; }
+        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
 
         [ForeignKey("Course")]

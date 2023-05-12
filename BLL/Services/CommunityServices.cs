@@ -49,7 +49,7 @@ namespace BLL.Services
                 {
                     Id = cm.Id,
                     Name = cm.Name,
-                    StudentCommunities = cm.StudentCommunities,
+                    UserCommunities = cm.UserCommunities,
                     CourseId = cm.CourseId,
                     Posts = cm.Posts,
                     Course=cm.Course
@@ -66,7 +66,7 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                StudentCommunities = cm.StudentCommunities,
+                UserCommunities = cm.UserCommunities,
                 CourseId = cm.CourseId,
                 Posts = cm.Posts,
                 Course = cm.Course
@@ -79,7 +79,7 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                StudentCommunities = cm.StudentCommunities,
+                UserCommunities = cm.UserCommunities,
                 CourseId = cm.CourseId,
                 Posts = cm.Posts,
                 Course = cm.Course

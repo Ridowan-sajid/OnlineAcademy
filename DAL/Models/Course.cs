@@ -14,15 +14,15 @@ namespace DAL.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public int TeacherId { get; set; }
+/*        public int TeacherId { get; set; }*/
 
         [Required]
         public double Price { get; set; }
 
-        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
+        public virtual ICollection<UserCourse> UserCourses { get; set; }
         public Course()
         {
-            StudentCourses = new List<StudentCourse>();
+            UserCourses = new List<UserCourse>();
         }
 
     }

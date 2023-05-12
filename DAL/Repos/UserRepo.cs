@@ -8,35 +8,34 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class TeacherRepo : Repo, IRepo<Teacher, int, bool>
+    internal class UserRepo : Repo, IRepo<User, int, bool>
     {
         public bool Delete(int id)
         {
-            var data = db.Teachers.Find(id);
-            db.Teachers.Remove(data);
+            var data = db.Users.Find(id);
+            db.Users.Remove(data);
             return db.SaveChanges() > 0;
         }
 
-        public List<Teacher> Get()
+        public List<User> Get()
         {
-            return db.Teachers.ToList();
+            return db.Users.ToList();
         }
 
-        public Teacher Get(int id)
+        public User Get(int id)
         {
-            return db.Teachers.Find(id);
+            return db.Users.Find(id);
         }
 
-        public bool Insert(Teacher obj)
+        public bool Insert(User obj)
         {
-
-            db.Teachers.Add(obj);
+            db.Users.Add(obj);
             return db.SaveChanges() > 0;
         }
 
-        public bool Update(Teacher obj)
+        public bool Update(User obj)
         {
-            var data = db.Teachers.Find(obj.Id);
+            var data = db.Users.Find(obj.Id);
             db.Entry(data).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }

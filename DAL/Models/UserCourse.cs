@@ -8,18 +8,19 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class StudentCommunity
+    public class UserCourse
     {
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Student")]
-        public int StudentId { get; set; }
-        public virtual Student Student { get; set; }
-        [ForeignKey("Community")]
-        public int CommunityId { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
+        [ForeignKey("Course")]
+        public int CourseId { get; set; }
 
-        public virtual Community Community { get; set; }
+        public virtual Course Course { get; set; }
+
 
     }
 }

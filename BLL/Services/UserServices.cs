@@ -9,43 +9,43 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class StudentServices
+    public class UserServices
     {
-        public static List<StudentDTO> Get()
+        public static List<UserDTO> Get()
         {
-            var data = DataAccessFactory.StudentData().Get();
+            var data = DataAccessFactory.UserData().Get();
             return Convert(data);
         }
 
-        public static StudentDTO Get(int id)
+        public static UserDTO Get(int id)
         {
-            return Convert(DataAccessFactory.StudentData().Get(id));
+            return Convert(DataAccessFactory.UserData().Get(id));
         }
 
-        public static bool Create(StudentDTO Student)
+        public static bool Create(UserDTO Student)
         {
             var data = Convert(Student);
-            return DataAccessFactory.StudentData().Insert(data);
+            return DataAccessFactory.UserData().Insert(data);
         }
 
-        public static bool Update(StudentDTO Student)
+        public static bool Update(UserDTO Student)
         {
             var data = Convert(Student);
-            return DataAccessFactory.StudentData().Update(data);
+            return DataAccessFactory.UserData().Update(data);
         }
 
         public static bool Delete(int id)
         {
-            return DataAccessFactory.StudentData().Delete(id);
+            return DataAccessFactory.UserData().Delete(id);
         }
 
 
-        static List<StudentDTO> Convert(List<Student> Student)
+        static List<UserDTO> Convert(List<User> Student)
         {
-            var data = new List<StudentDTO>();
+            var data = new List<UserDTO>();
             foreach (var cm in Student)
             {
-                data.Add(new StudentDTO()
+                data.Add(new UserDTO()
                 {
                     Id = cm.Id,
                     Name = cm.Name,
@@ -53,9 +53,10 @@ namespace BLL.Services
                     Phone = cm.Phone,
                     Gmail = cm.Gmail,
                     Gender = cm.Gender,
+                    Role = cm.Role,
                     JoinDate = cm.JoinDate,
-                    StudentCommunities = cm.StudentCommunities,
-                    StudentCourses = cm.StudentCourses,
+                    UserCommunities = cm.UserCommunities,
+                    UserCourses = cm.UserCourses,
                     Posts = cm.Posts,
                     Comments = cm.Comments
 
@@ -65,9 +66,9 @@ namespace BLL.Services
             return data;
         }
 
-        static StudentDTO Convert(Student cm)
+        static UserDTO Convert(User cm)
         {
-            return new StudentDTO()
+            return new UserDTO()
             {
                 Id = cm.Id,
                 Name = cm.Name,
@@ -75,17 +76,18 @@ namespace BLL.Services
                 Phone = cm.Phone,
                 Gmail = cm.Gmail,
                 Gender = cm.Gender,
+                Role = cm.Role,
                 JoinDate = cm.JoinDate,
-                StudentCommunities = cm.StudentCommunities,
-                StudentCourses = cm.StudentCourses,
+                UserCommunities = cm.UserCommunities,
+                UserCourses = cm.UserCourses,
                 Posts = cm.Posts,
                 Comments = cm.Comments
             };
         }
 
-        static Student Convert(StudentDTO cm)
+        static User Convert(UserDTO cm)
         {
-            return new Student()
+            return new User()
             {
                 Id = cm.Id,
                 Name = cm.Name,
@@ -93,9 +95,10 @@ namespace BLL.Services
                 Phone = cm.Phone,
                 Gmail = cm.Gmail,
                 Gender = cm.Gender,
+                Role = cm.Role,
                 JoinDate = cm.JoinDate,
-                StudentCommunities = cm.StudentCommunities,
-                StudentCourses = cm.StudentCourses,
+                UserCommunities = cm.UserCommunities,
+                UserCourses = cm.UserCourses,
                 Posts = cm.Posts,
                 Comments = cm.Comments
             };

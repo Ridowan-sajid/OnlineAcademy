@@ -63,25 +63,35 @@
     <Compile Include="Migrations\202304241429421_NullAdded.designer.cs">
       <DependentUpon>202304241429421_NullAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305121516086_updated.cs" />
+    <Compile Include="Migrations\202305121516086_updated.designer.cs">
+      <DependentUpon>202305121516086_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305121523142_updated1.cs" />
+    <Compile Include="Migrations\202305121523142_updated1.designer.cs">
+      <DependentUpon>202305121523142_updated1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305121612040_updated3.cs" />
+    <Compile Include="Migrations\202305121612040_updated3.designer.cs">
+      <DependentUpon>202305121612040_updated3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Community.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentCommunity.cs" />
-    <Compile Include="Models\StudentCourse.cs" />
-    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserCommunity.cs" />
+    <Compile Include="Models\UserCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\CommentRepo.cs" />
     <Compile Include="Repos\CommunityRepo.cs" />
     <Compile Include="Repos\CourseRepo.cs" />
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
-    <Compile Include="Repos\StudentCommunityRepo.cs" />
-    <Compile Include="Repos\StudentCourseRepo.cs" />
-    <Compile Include="Repos\StudentRepo.cs" />
-    <Compile Include="Repos\TeacherRepo.cs" />
+    <Compile Include="Repos\UserCommunityRepo.cs" />
+    <Compile Include="Repos\UserCourseRepo.cs" />
+    <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -94,6 +104,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304241429421_NullAdded.resx">
       <DependentUpon>202304241429421_NullAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121516086_updated.resx">
+      <DependentUpon>202305121516086_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121523142_updated1.resx">
+      <DependentUpon>202305121523142_updated1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121612040_updated3.resx">
+      <DependentUpon>202305121612040_updated3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,11 +15,11 @@ namespace DAL.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public virtual ICollection<StudentCommunity> StudentCommunities { get; set; }
+        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public Community()
         {
-            StudentCommunities = new List<StudentCommunity>();
+            UserCommunities = new List<UserCommunity>();
             Posts = new List<Post>();
         }
 

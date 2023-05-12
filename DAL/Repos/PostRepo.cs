@@ -19,13 +19,18 @@ namespace DAL.Repos
 
         public List<Post> Get()
         {
-            return db.Posts.ToList();
+            var data = db.Posts.ToList();
+            return data;
+
         }
 
         public Post Get(int id)
         {
-            return db.Posts.Find(id);
+            var data = db.Posts.Find(id);
+            return data;
         }
+
+
 
         public bool Insert(Post obj)
         {

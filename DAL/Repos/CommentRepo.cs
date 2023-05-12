@@ -20,24 +20,12 @@ namespace DAL.Repos
         public List<Comment> Get()
         {
             var data = db.Comments.ToList();
-            foreach(var l in data)
-            {
-                
-                if (l.StudentId == null) l.StudentId = -1;
-                if (l.TeacherId == null) l.TeacherId = -1;
-                if (l.PostId == null) l.PostId = -1;
-            }
             return data;
         }
 
         public Comment Get(int id)
         {
             var data = db.Comments.Find(id);
-
-                if (data.StudentId == null) data.StudentId = -1;
-                if (data.TeacherId == null) data.TeacherId = -1;
-                if (data.PostId == null) data.PostId = -1;
-            
             return data;
         }
 

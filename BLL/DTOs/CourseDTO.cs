@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,15 @@ namespace BLL.DTOs
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public int TeacherId { get; set; }
+
+/*        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User user { get; set; }*/
 
         [Required]
         public double Price { get; set; }
 
-        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
+        public virtual ICollection<UserCourse> UserCourses { get; set; }
 
     }
 }

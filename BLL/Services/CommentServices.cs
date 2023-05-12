@@ -50,10 +50,11 @@ namespace BLL.Services
                     Id = cm.Id,
                     Text = cm.Text,
                     Date = cm.Date,
+                    UserId = (int)cm.UserId,
                     /*Student=cm.Student,*/
-                    TeacherId= (int)cm.TeacherId,
-                   /* Teacher=cm.Teacher,*/
-                    PostId= (int)cm.PostId,
+                    /*TeacherId= (int)cm.TeacherId,*/
+                    /* Teacher=cm.Teacher,*/
+                    PostId = (int)cm.PostId,
                     /*Post=cm.Post*/
                     
                 });
@@ -69,9 +70,9 @@ namespace BLL.Services
                 Id = cm.Id,
                 Text = cm.Text,
                 Date = cm.Date,
-                StudentId = (int)cm.StudentId,
+                UserId = (int)cm.UserId,
                 /*Student = cm.Student,*/
-                TeacherId = (int)cm.TeacherId,
+               /* TeacherId = (int)cm.TeacherId,*/
                /* Teacher = cm.Teacher,*/
                 PostId = (int)cm.PostId,
                 /*Post = cm.Post*/
@@ -85,9 +86,9 @@ namespace BLL.Services
                 Id = cm.Id,
                 Text = cm.Text,
                 Date = cm.Date,
-                StudentId = cm.StudentId,
+                UserId = cm.UserId,
                 /*Student = cm.Student,*/
-                TeacherId = cm.TeacherId,
+                /*TeacherId = cm.TeacherId,*/
                 /*Teacher = cm.Teacher,*/
                 PostId = cm.PostId,
                 /*Post = cm.Post*/

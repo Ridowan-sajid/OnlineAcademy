@@ -9,16 +9,16 @@ using System.Web.Http;
 
 namespace OnlineAcademy.Controllers
 {
-    public class StudentController : ApiController
+    public class UserCourseController : ApiController
     {
 
         [HttpGet]
-        [Route("api/Students")]
+        [Route("api/UserCourses")]
         public HttpResponseMessage Get()
         {
             try
             {
-                var data = StudentServices.Get();
+                var data = UserCourseServices.Get();
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)
@@ -30,12 +30,12 @@ namespace OnlineAcademy.Controllers
         }
 
         [HttpGet]
-        [Route("api/Students/{id:int}")]
+        [Route("api/UserCourses/{id:int}")]
         public HttpResponseMessage GetM(int id)
         {
             try
             {
-                var data = StudentServices.Get(id);
+                var data = UserCourseServices.Get(id);
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)
@@ -47,12 +47,12 @@ namespace OnlineAcademy.Controllers
         }
 
         [HttpPost]
-        [Route("api/Students/add")]
-        public HttpResponseMessage AddMembers(StudentDTO Student)
+        [Route("api/UserCourses/add")]
+        public HttpResponseMessage AddMembers(UserCourseDTO StudentCourse)
         {
             try
             {
-                var res = StudentServices.Create(Student);
+                var res = UserCourseServices.Create(StudentCourse);
                 return Request.CreateResponse(HttpStatusCode.OK, res);
             }
             catch (Exception ex)
@@ -62,12 +62,12 @@ namespace OnlineAcademy.Controllers
         }
 
         [HttpPost]
-        [Route("api/Students/update")]
-        public HttpResponseMessage UpdateMembers(StudentDTO Student)
+        [Route("api/UserCourses/update")]
+        public HttpResponseMessage UpdateMembers(UserCourseDTO StudentCourse)
         {
             try
             {
-                var res = StudentServices.Update(Student);
+                var res = UserCourseServices.Update(StudentCourse);
                 return Request.CreateResponse(HttpStatusCode.OK, res);
             }
             catch (Exception ex)
@@ -78,12 +78,12 @@ namespace OnlineAcademy.Controllers
 
 
         [HttpDelete]
-        [Route("api/Students/delete/{id:int}")]
+        [Route("api/UserCourses/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)
         {
             try
             {
-                var res = StudentServices.Delete(id);
+                var res = UserCourseServices.Delete(id);
                 return Request.CreateResponse(HttpStatusCode.OK, res);
             }
             catch (Exception ex)

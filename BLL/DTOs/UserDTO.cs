@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL.DTOs
 {
-    public class StudentDTO
+    public class UserDTO
     {
         [Key]
         public int Id { get; set; }
@@ -25,10 +25,12 @@ namespace BLL.DTOs
         [Required]
         public string Gender { get; set; }
         [Required]
+        public string Role { get; set; }
+        [Required]
         public DateTime JoinDate { get; set; }
 
-        public virtual ICollection<StudentCommunity> StudentCommunities { get; set; }
-        public virtual ICollection<StudentCourse> StudentCourses { get; set; }
+        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
+        public virtual ICollection<UserCourse> UserCourses { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 

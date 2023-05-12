@@ -52,12 +52,12 @@ namespace BLL.Services
                     Details = cm.Details,
                     Date = cm.Date,
                     CommunityId = (int)cm.CommunityId,
-                    Community = cm.Community,
-                    StudentId = (int)cm.StudentId,
-                    Student = cm.Student,
-                    TeacherId = (int)cm.TeacherId,
-                    Teacher = cm.Teacher,
-                    Comments=cm.Comments
+                    /*Community = cm.Community,*/
+                    UserId = (int)cm.UserId,
+                   /* Student = cm.Student,*/
+                   /* TeacherId = (int)cm.TeacherId,*/
+                    /*Teacher = cm.Teacher,*/
+                    /*Comments=cm.Comments*/
                 });
             }
 
@@ -73,12 +73,12 @@ namespace BLL.Services
                 Details = cm.Details,
                 Date = cm.Date,
                 CommunityId = (int)cm.CommunityId,
-                Community = cm.Community,
-                StudentId = (int)cm.StudentId,
-                Student = cm.Student,
-                TeacherId = (int)cm.TeacherId,
-                Teacher = cm.Teacher,
-                Comments = cm.Comments
+                /*Community = cm.Community,*/
+                UserId = (int)cm.UserId,
+                /*Student = cm.Student,*/
+               /* TeacherId = (int)cm.TeacherId,*/
+                /*Teacher = cm.Teacher,
+                Comments = cm.Comments*/
             };
         }
 
@@ -91,12 +91,12 @@ namespace BLL.Services
                 Details = cm.Details,
                 Date = cm.Date,
                 CommunityId = cm.CommunityId,
-                Community = cm.Community,
-                StudentId = cm.StudentId,
-                Student = cm.Student,
-                TeacherId = cm.TeacherId,
-                Teacher = cm.Teacher,
-                Comments = cm.Comments
+                /*Community = cm.Community,*/
+                UserId = cm.UserId,
+                /*Student = cm.Student,*/
+               /* TeacherId = cm.TeacherId,*/
+                /*Teacher = cm.Teacher,*/
+                /*Comments = cm.Comments*/
             };
         }
     }

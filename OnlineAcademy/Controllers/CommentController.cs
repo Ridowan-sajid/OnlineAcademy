@@ -57,7 +57,9 @@ namespace OnlineAcademy.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+                Console.WriteLine(ex.InnerException.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.InnerException.InnerException.Message);
+                
             }
         }
 
@@ -72,7 +74,7 @@ namespace OnlineAcademy.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.InnerException.InnerException.Message);
             }
         }
 

@@ -18,14 +18,14 @@ namespace DAL.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [ForeignKey("Student")]
-        public int? StudentId { get; set; }
-        public virtual Student Student { get; set; }
+        [ForeignKey("User")]
+        public int? UserId { get; set; }
+        public virtual User User { get; set; }
 
 
-        [ForeignKey("Teacher")]
+/*        [ForeignKey("Teacher")]
         public int? TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual Teacher Teacher { get; set; }*/
 
 
         [ForeignKey("Post")]

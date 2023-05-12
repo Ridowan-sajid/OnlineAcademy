@@ -28,21 +28,21 @@ namespace DAL
         {
             return new PostRepo();
         }
-        public static IRepo<StudentCommunity, int, bool> StudentCommunityData()
+        public static IRepo<UserCommunity, int, bool> UserCommunityData()
         {
-            return new StudentCommunityRepo();
+            return new UserCommunityRepo();
         }
-        public static IRepo<StudentCourse, int, bool> StudentCourseData()
+        public static IRepo<UserCourse, int, bool> UserCourseData()
         {
-            return new StudentCourseRepo();
+            return new UserCourseRepo();
         }
-        public static IRepo<Student, int, bool> StudentData()
+        public static IRepo<User, int, bool> UserData()
         {
-            return new StudentRepo();
+            return new UserRepo();
         }
-        public static IRepo<Teacher, int, bool> TeacherData()
+/*        public static IRepo<Teacher, int, bool> TeacherData()
         {
             return new TeacherRepo();
-        }
+        }*/
     }
 }
