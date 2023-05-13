@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class UserRepo : Repo, IRepo<User, int, bool>,IAuth<bool>
+    internal class UserRepo : Repo, IRepo2<User, int, bool>,IAuth<bool>
     {
         public bool Authenticate(string name, string password)
         {
@@ -35,6 +35,16 @@ namespace DAL.Repos
         {
             return db.Users.Find(id);
         }
+
+        public User Get(string name, string password)
+        {
+             var user = (from u in db.Users
+                        where u.Name.Equals(name)
+                        && u.Password.Equals(password)
+                        select u).SingleOrDefault();
+            return user;
+        }
+
 
         public bool Insert(User obj)
         {

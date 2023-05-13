@@ -18,8 +18,10 @@ namespace BLL.Services
 
             if (res)
             {
+
+                var user = DataAccessFactory.UserData().Get(name,password);
                 var token = new Token();
-                token.UserId = name;
+                token.UserId = user.Id;
                 token.CreatedAt = DateTime.Now;
                 token.TKey = Guid.NewGuid().ToString();
                 var ret = DataAccessFactory.TokenData().Insert(token);
@@ -37,6 +39,48 @@ namespace BLL.Services
             }
             return null;
 
+        }
+
+
+        public static bool IsTokenValid(string tkey)
+        {
+            var extk = DataAccessFactory.TokenData().Get(tkey);
+            if (extk != null && extk.DestryedAt == null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool Logout(string tkey)
+        {
+            var extk = DataAccessFactory.TokenData().Get(tkey);
+            extk.DestryedAt = DateTime.Now;
+            if (DataAccessFactory.TokenData().Update(extk) != null)
+            {
+                return true;
+            }
+            return false;
+
+
+        }
+        public static bool IsAdmin(string tkey)
+        {
+            var extk = DataAccessFactory.TokenData().Get(tkey);
+            if (IsTokenValid(tkey) && extk.User.Role.Equals("Admin"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool IsTeacher(string tkey)
+        {
+            var extk = DataAccessFactory.TokenData().Get(tkey);
+            if (IsTokenValid(tkey) && extk.User.Role.Equals("Teacher"))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

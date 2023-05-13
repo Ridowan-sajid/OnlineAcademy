@@ -56,6 +56,7 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IRepo2.cs" />
     <Compile Include="Migrations\202304231625397_postadded.cs" />
     <Compile Include="Migrations\202304231625397_postadded.designer.cs">
       <DependentUpon>202304231625397_postadded.cs</DependentUpon>
@@ -87,6 +88,10 @@
     <Compile Include="Migrations\202305122008588_updatetoken-2.cs" />
     <Compile Include="Migrations\202305122008588_updatetoken-2.designer.cs">
       <DependentUpon>202305122008588_updatetoken-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305131320527_token3.0.cs" />
+    <Compile Include="Migrations\202305131320527_token3.0.designer.cs">
+      <DependentUpon>202305131320527_token3.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -137,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305122008588_updatetoken-2.resx">
       <DependentUpon>202305122008588_updatetoken-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305131320527_token3.0.resx">
+      <DependentUpon>202305131320527_token3.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

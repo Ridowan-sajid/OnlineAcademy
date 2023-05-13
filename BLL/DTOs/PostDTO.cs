@@ -24,9 +24,7 @@ namespace BLL.DTOs
         public int CommunityId { get; set; }
 
         public int UserId { get; set; }
-
-
-       /* public virtual ICollection<Comment> Comments { get; set; }*/
+        public virtual User User { get; set; }
 
     }
 }

@@ -36,7 +36,7 @@ namespace DAL
         {
             return new UserCourseRepo();
         }
-        public static IRepo<User, int, bool> UserData()
+        public static IRepo2<User, int, bool> UserData()
         {
             return new UserRepo();
         }

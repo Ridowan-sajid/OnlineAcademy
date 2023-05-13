@@ -16,6 +16,8 @@ namespace BLL.DTOs
         [StringLength(50)]
         public string Name { get; set; }
         [Required]
+        public string Password { get; set; }
+        [Required]
         public int Age { get; set; }
 
         [Required]

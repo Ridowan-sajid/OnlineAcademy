@@ -1,17 +1,21 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using OnlineAcademy.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace OnlineAcademy.Controllers
 {
+    [EnableCors("*", "*", "*")]
+    [Logged]
     public class PostController : ApiController
     {
-
+        /*[AdminAcces]*/
         [HttpGet]
         [Route("api/Posts")]
         public HttpResponseMessage Get()
@@ -29,6 +33,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        
         [HttpGet]
         [Route("api/Posts/{id:int}")]
         public HttpResponseMessage GetM(int id)
@@ -47,7 +52,7 @@ namespace OnlineAcademy.Controllers
         }
 
         [HttpGet]
-        [Route("api/Posts/{id:int}/comment")]
+        [Route("api/Posts/{id:int}/comments")]
         public HttpResponseMessage GetWithComment(int id)
         {
             try

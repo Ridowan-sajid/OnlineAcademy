@@ -1,14 +1,18 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using OnlineAcademy.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace OnlineAcademy.Controllers
 {
+    [EnableCors("*", "*", "*")]
+    [Logged]
     public class UserController : ApiController
     {
 
@@ -65,7 +69,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [AdminAcces]
         [HttpPost]
         [Route("api/Users/add")]
         public HttpResponseMessage AddMembers(UserDTO Student)
@@ -81,6 +85,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [AdminAcces]
         [HttpPost]
         [Route("api/Users/update")]
         public HttpResponseMessage UpdateMembers(UserDTO Student)
@@ -96,7 +101,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [AdminAcces]
         [HttpDelete]
         [Route("api/Users/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)
