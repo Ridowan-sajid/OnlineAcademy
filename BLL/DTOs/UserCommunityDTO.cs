@@ -14,13 +14,10 @@ namespace BLL.DTOs
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-        [ForeignKey("Community")]
+
         public int CommunityId { get; set; }
 
-        public virtual Community Community { get; set; }
 
     }
 }

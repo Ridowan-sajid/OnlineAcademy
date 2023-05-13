@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class UserRepo : Repo, IRepo<User, int, bool>
+    internal class UserRepo : Repo, IRepo<User, int, bool>,IAuth<bool>
     {
+        public bool Authenticate(string name, string password)
+        {
+            var data = db.Users.FirstOrDefault(u => u.Name.Equals(name) &&
+            u.Password.Equals(password));
+            if (data != null) return true;
+            return false;
+                   
+        }
+
         public bool Delete(int id)
         {
             var data = db.Users.Find(id);

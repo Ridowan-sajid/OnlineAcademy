@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,54 @@ namespace BLL.Services
         public static List<UserCommunityDTO> Get()
         {
             var data = DataAccessFactory.UserCommunityData().Get();
-            return Convert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCommunity, UserCommunityDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<UserCommunityDTO>>(data);
+            return mapped;
+            //return Convert(data);
         }
 
         public static UserCommunityDTO Get(int id)
         {
-            return Convert(DataAccessFactory.UserCommunityData().Get(id));
+            var data = DataAccessFactory.UserCommunityData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCommunity, UserCommunityDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCommunityDTO>(data);
+            return mapped;
         }
 
         public static bool Create(UserCommunityDTO userCommunityDTO)
         {
-            var data = Convert(userCommunityDTO);
-            return DataAccessFactory.UserCommunityData().Insert(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCommunityDTO, UserCommunity>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCommunity>(userCommunityDTO);
+
+            // var data = Convert(userCommunityDTO);
+            return DataAccessFactory.UserCommunityData().Insert(mapped);
         }
 
         public static bool Update(UserCommunityDTO userCommunityDTO)
         {
-            var data = Convert(userCommunityDTO);
-            return DataAccessFactory.UserCommunityData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCommunityDTO, UserCommunity>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCommunity>(userCommunityDTO);
+
+            //var data = Convert(userCommunityDTO);
+            return DataAccessFactory.UserCommunityData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +71,7 @@ namespace BLL.Services
         }
 
 
-        static List<UserCommunityDTO> Convert(List<UserCommunity> StudentCommunity)
+       /* static List<UserCommunityDTO> Convert(List<UserCommunity> StudentCommunity)
         {
             var data = new List<UserCommunityDTO>();
             foreach (var cm in StudentCommunity)
@@ -81,6 +112,6 @@ namespace BLL.Services
                 CommunityId = cm.CommunityId,
                 Community = cm.Community
             };
-        }
+        }*/
     }
 }

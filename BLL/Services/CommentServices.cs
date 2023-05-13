@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,56 @@ namespace BLL.Services
         public static List<CommentDTO> Get()
         {
             var data = DataAccessFactory.CommentData().Get();
-            return Convert(data);
+            var cfg = new MapperConfiguration(c=>
+            {
+                c.CreateMap<Comment, CommentDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<CommentDTO>>(data);
+
+            return mapped;
+            /*return Convert(data);*/
         }
 
         public static CommentDTO Get(int id)
         {
-            return Convert(DataAccessFactory.CommentData().Get(id));
+            var data = DataAccessFactory.CommentData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Comment, CommentDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<CommentDTO>(data);
+
+            return mapped; 
+            
+
         }
 
         public static bool Create(CommentDTO member)
         {
-            var data = Convert(member);
-            return DataAccessFactory.CommentData().Insert(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CommentDTO, Comment>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Comment>(member);
+
+            /*var data = Convert(member);*/
+            return DataAccessFactory.CommentData().Insert(mapped);
         }
 
         public static bool Update(CommentDTO member)
         {
-            var data = Convert(member);
-            return DataAccessFactory.CommentData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CommentDTO, Comment>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Comment>(member);
+            /*var data = Convert(member);*/
+            return DataAccessFactory.CommentData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +73,7 @@ namespace BLL.Services
         }
 
 
-        static List<CommentDTO> Convert(List<Comment> comment)
+       /* static List<CommentDTO> Convert(List<Comment> comment)
         {
             var data = new List<CommentDTO>();
             foreach (var cm in comment)
@@ -51,11 +84,11 @@ namespace BLL.Services
                     Text = cm.Text,
                     Date = cm.Date,
                     UserId = (int)cm.UserId,
-                    /*Student=cm.Student,*/
+                    *//*Student=cm.Student,*/
                     /*TeacherId= (int)cm.TeacherId,*/
-                    /* Teacher=cm.Teacher,*/
+                    /* Teacher=cm.Teacher,*//*
                     PostId = (int)cm.PostId,
-                    /*Post=cm.Post*/
+                    *//*Post=cm.Post*//*
                     
                 });
             }
@@ -71,11 +104,11 @@ namespace BLL.Services
                 Text = cm.Text,
                 Date = cm.Date,
                 UserId = (int)cm.UserId,
-                /*Student = cm.Student,*/
+                *//*Student = cm.Student,*/
                /* TeacherId = (int)cm.TeacherId,*/
-               /* Teacher = cm.Teacher,*/
+               /* Teacher = cm.Teacher,*//*
                 PostId = (int)cm.PostId,
-                /*Post = cm.Post*/
+                *//*Post = cm.Post*//*
             };
         }
 
@@ -87,13 +120,13 @@ namespace BLL.Services
                 Text = cm.Text,
                 Date = cm.Date,
                 UserId = cm.UserId,
-                /*Student = cm.Student,*/
+                *//*Student = cm.Student,*/
                 /*TeacherId = cm.TeacherId,*/
-                /*Teacher = cm.Teacher,*/
+                /*Teacher = cm.Teacher,*//*
                 PostId = cm.PostId,
-                /*Post = cm.Post*/
+                *//*Post = cm.Post*//*
             };
-        }
+        }*/
 
 
     }

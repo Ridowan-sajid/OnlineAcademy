@@ -40,9 +40,13 @@ namespace DAL
         {
             return new UserRepo();
         }
-/*        public static IRepo<Teacher, int, bool> TeacherData()
+        public static IAuth<bool> AuthData()
         {
-            return new TeacherRepo();
-        }*/
+            return new UserRepo();
+        }
+        public static IRepo<Token, string, Token> TokenData()
+        {
+            return new TokenRepo();
+        }
     }
 }

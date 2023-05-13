@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,74 @@ namespace BLL.Services
         public static List<UserDTO> Get()
         {
             var data = DataAccessFactory.UserData().Get();
-            return Convert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<UserDTO>>(data);
+            return mapped;
+            //return Convert(data);
         }
 
         public static UserDTO Get(int id)
         {
-            return Convert(DataAccessFactory.UserData().Get(id));
+            var data = DataAccessFactory.UserData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserDTO>(data);
+            return mapped;
         }
 
-        public static bool Create(UserDTO Student)
+
+        public static UserPostDTO GetWithPost(int id)
         {
-            var data = Convert(Student);
-            return DataAccessFactory.UserData().Insert(data);
+            var data = DataAccessFactory.UserData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<User, UserPostDTO>();
+                c.CreateMap<Post, PostDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserPostDTO>(data);
+            return mapped;
+
+
         }
 
-        public static bool Update(UserDTO Student)
+
+
+
+        public static bool Create(UserDTO user)
         {
-            var data = Convert(Student);
-            return DataAccessFactory.UserData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserDTO, User>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<User>(user);
+
+            //var data = Convert(Student);
+            return DataAccessFactory.UserData().Insert(mapped);
+        }
+
+        public static bool Update(UserDTO user)
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserDTO, User>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<User>(user);
+
+            //var data = Convert(Student);
+            return DataAccessFactory.UserData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +91,7 @@ namespace BLL.Services
         }
 
 
-        static List<UserDTO> Convert(List<User> Student)
+        /*static List<UserDTO> Convert(List<User> Student)
         {
             var data = new List<UserDTO>();
             foreach (var cm in Student)
@@ -102,6 +153,6 @@ namespace BLL.Services
                 Posts = cm.Posts,
                 Comments = cm.Comments
             };
-        }
+        }*/
     }
 }

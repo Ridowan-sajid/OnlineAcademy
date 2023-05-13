@@ -24,7 +24,7 @@ namespace BLL.DTOs
         [Required]
         public double Price { get; set; }
 
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
+       /* public virtual ICollection<UserCourse> UserCourses { get; set; }*/
 
     }
 }

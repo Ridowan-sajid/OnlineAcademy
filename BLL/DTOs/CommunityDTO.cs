@@ -15,12 +15,10 @@ namespace BLL.DTOs
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
+/*        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }*/
 
-        [ForeignKey("Course")]
         public int CourseId { get; set; }
-        public virtual Course Course { get; set; }
 
     }
 }

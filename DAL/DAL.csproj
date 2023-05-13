@@ -54,6 +54,7 @@
     <Compile Include="ACADEMYContext.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Migrations\202304231625397_postadded.cs" />
     <Compile Include="Migrations\202304231625397_postadded.designer.cs">
@@ -75,11 +76,24 @@
     <Compile Include="Migrations\202305121612040_updated3.designer.cs">
       <DependentUpon>202305121612040_updated3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305121916136_update.4.cs" />
+    <Compile Include="Migrations\202305121916136_update.4.designer.cs">
+      <DependentUpon>202305121916136_update.4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305121952575_updatetoken.cs" />
+    <Compile Include="Migrations\202305121952575_updatetoken.designer.cs">
+      <DependentUpon>202305121952575_updatetoken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305122008588_updatetoken-2.cs" />
+    <Compile Include="Migrations\202305122008588_updatetoken-2.designer.cs">
+      <DependentUpon>202305122008588_updatetoken-2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Community.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserCommunity.cs" />
     <Compile Include="Models\UserCourse.cs" />
@@ -89,6 +103,7 @@
     <Compile Include="Repos\CourseRepo.cs" />
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserCommunityRepo.cs" />
     <Compile Include="Repos\UserCourseRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
@@ -113,6 +128,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305121612040_updated3.resx">
       <DependentUpon>202305121612040_updated3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121916136_update.4.resx">
+      <DependentUpon>202305121916136_update.4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121952575_updatetoken.resx">
+      <DependentUpon>202305121952575_updatetoken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305122008588_updatetoken-2.resx">
+      <DependentUpon>202305122008588_updatetoken-2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

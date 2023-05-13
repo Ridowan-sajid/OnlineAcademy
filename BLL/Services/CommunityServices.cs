@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,59 @@ namespace BLL.Services
         public static List<CommunityDTO> Get()
         {
             var data = DataAccessFactory.CommunityData().Get();
-            return Convert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Community, CommunityDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<CommunityDTO>>(data);
+
+            return mapped;
+
+
+            //return Convert(data);
         }
 
         public static CommunityDTO Get(int id)
         {
-            return Convert(DataAccessFactory.CommunityData().Get(id));
+            var data= DataAccessFactory.CommunityData().Get(id);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Community, CommunityDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<CommunityDTO>(data);
+
+            return mapped;
+
         }
 
         public static bool Create(CommunityDTO community)
         {
-            var data = Convert(community);
-            return DataAccessFactory.CommunityData().Insert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CommunityDTO, Community>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Community>(community);
+
+            //var data = Convert(community);
+            return DataAccessFactory.CommunityData().Insert(mapped);
         }
 
         public static bool Update(CommunityDTO community)
         {
-            var data = Convert(community);
-            return DataAccessFactory.CommunityData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CommunityDTO, Community>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Community>(community);
+
+            //var data = Convert(community);
+            return DataAccessFactory.CommunityData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +76,7 @@ namespace BLL.Services
         }
 
 
-        static List<CommunityDTO> Convert(List<Community> community)
+        /*static List<CommunityDTO> Convert(List<Community> community)
         {
             var data = new List<CommunityDTO>();
             foreach (var cm in community)
@@ -84,7 +120,7 @@ namespace BLL.Services
                 Posts = cm.Posts,
                 Course = cm.Course
             };
-        }
+        }*/
 
     }
 }

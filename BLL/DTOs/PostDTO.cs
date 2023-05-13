@@ -21,20 +21,12 @@ namespace BLL.DTOs
         [Required]
         public DateTime Date { get; set; }
 
-        [ForeignKey("Community")]
         public int CommunityId { get; set; }
-        public virtual Community Community { get; set; }
 
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-
-/*        [ForeignKey("Teacher")]
-        public int TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }*/
 
 
-        public virtual ICollection<Comment> Comments { get; set; }
+       /* public virtual ICollection<Comment> Comments { get; set; }*/
 
     }
 }

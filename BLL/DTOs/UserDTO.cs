@@ -29,10 +29,10 @@ namespace BLL.DTOs
         [Required]
         public DateTime JoinDate { get; set; }
 
-        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
+/*        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
         public virtual ICollection<UserCourse> UserCourses { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }*/
 
 
 

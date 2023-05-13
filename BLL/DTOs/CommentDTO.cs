@@ -18,18 +18,9 @@ namespace BLL.DTOs
         [Required]
         public DateTime Date { get; set; }
 
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
 
-        /*        [ForeignKey("Teacher")]
-                public int TeacherId { get; set; }*/
-        /*public virtual Teacher Teacher { get; set; }*/
-
-
-        [ForeignKey("Post")]
         public int PostId { get; set; }
-        public virtual Post Post { get; set; }
 
 
     }

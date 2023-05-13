@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,54 @@ namespace BLL.Services
         public static List<CourseDTO> Get()
         {
             var data = DataAccessFactory.CourseData().Get();
-            return Convert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Course, CourseDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<CourseDTO>>(data);
+            return mapped;
+            //return Convert(data);
         }
 
         public static CourseDTO Get(int id)
         {
-            return Convert(DataAccessFactory.CourseData().Get(id));
+            var data=DataAccessFactory.CourseData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Course, CourseDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<CourseDTO>(data);
+            return mapped;
         }
 
-        public static bool Create(CourseDTO Course)
+        public static bool Create(CourseDTO course)
         {
-            var data = Convert(Course);
-            return DataAccessFactory.CourseData().Insert(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CourseDTO, Course>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Course>(course);
+
+            //var data = Convert(Course);
+            return DataAccessFactory.CourseData().Insert(mapped);
         }
 
-        public static bool Update(CourseDTO Course)
+        public static bool Update(CourseDTO course)
         {
-            var data = Convert(Course);
-            return DataAccessFactory.CourseData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CourseDTO, Course>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<Course>(course);
+
+            //var data = Convert(Course);
+            return DataAccessFactory.CourseData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +71,7 @@ namespace BLL.Services
         }
 
 
-        static List<CourseDTO> Convert(List<Course> Course)
+        /*static List<CourseDTO> Convert(List<Course> Course)
         {
             var data = new List<CourseDTO>();
             foreach (var cm in Course)
@@ -49,7 +80,7 @@ namespace BLL.Services
                 {
                     Id = cm.Id,
                     Name = cm.Name,
-                    /*TeacherId = cm.TeacherId,*/
+                    *//*TeacherId = cm.TeacherId,*//*
                     Price = cm.Price,
                     UserCourses = cm.UserCourses,
 
@@ -65,7 +96,7 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                /*TeacherId = cm.TeacherId,*/
+                *//*TeacherId = cm.TeacherId,*//*
                 Price = cm.Price,
                 UserCourses = cm.UserCourses,
             };
@@ -77,10 +108,10 @@ namespace BLL.Services
             {
                 Id = cm.Id,
                 Name = cm.Name,
-                /*TeacherId = cm.TeacherId,*/
+                *//*TeacherId = cm.TeacherId,*//*
                 Price = cm.Price,
                 UserCourses = cm.UserCourses,
             };
-        }
+        }*/
     }
 }

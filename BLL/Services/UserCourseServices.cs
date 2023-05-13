@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DAL;
 using DAL.Models;
 using System;
@@ -14,24 +15,55 @@ namespace BLL.Services
         public static List<UserCourseDTO> Get()
         {
             var data = DataAccessFactory.UserCourseData().Get();
-            return Convert(data);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCourse, UserCourseDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<UserCourseDTO>>(data);
+            return mapped;
+
+            //return Convert(data);
         }
 
         public static UserCourseDTO Get(int id)
         {
-            return Convert(DataAccessFactory.UserCourseData().Get(id));
+            var data=DataAccessFactory.UserCourseData().Get(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCourse, UserCourseDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCourseDTO>(data);
+            return mapped;
         }
 
         public static bool Create(UserCourseDTO StudentCourse)
         {
-            var data = Convert(StudentCourse);
-            return DataAccessFactory.UserCourseData().Insert(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCourseDTO, UserCourse>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCourse>(StudentCourse);
+
+            //var data = Convert(StudentCourse);
+            return DataAccessFactory.UserCourseData().Insert(mapped);
         }
 
         public static bool Update(UserCourseDTO StudentCourse)
         {
-            var data = Convert(StudentCourse);
-            return DataAccessFactory.UserCourseData().Update(data);
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserCourseDTO, UserCourse>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<UserCourse>(StudentCourse);
+
+            //var data = Convert(StudentCourse);
+            return DataAccessFactory.UserCourseData().Update(mapped);
         }
 
         public static bool Delete(int id)
@@ -40,7 +72,7 @@ namespace BLL.Services
         }
 
 
-        static List<UserCourseDTO> Convert(List<UserCourse> StudentCourse)
+      /*  static List<UserCourseDTO> Convert(List<UserCourse> StudentCourse)
         {
             var data = new List<UserCourseDTO>();
             foreach (var cm in StudentCourse)
@@ -81,6 +113,6 @@ namespace BLL.Services
                 CourseId = cm.CourseId,
                 Course = cm.Course
             };
-        }
+        }*/
     }
 }

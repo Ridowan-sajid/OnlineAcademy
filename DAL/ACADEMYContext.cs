@@ -17,7 +17,7 @@ namespace DAL
         public DbSet<User> Users { get; set; }
         public DbSet<UserCommunity> UserCommunities { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
-       /* public DbSet<Teacher> Teachers { get; set; }*/
+        public DbSet<Token> Tokens { get; set; }
 
 
     }

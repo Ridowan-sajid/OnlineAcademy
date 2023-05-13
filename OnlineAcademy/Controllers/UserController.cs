@@ -46,6 +46,26 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+
+
+        [HttpGet]
+        [Route("api/Users/{id:int}/post")]
+        public HttpResponseMessage GetWithPost(int id)
+        {
+            try
+            {
+                var data = UserServices.GetWithPost(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+
         [HttpPost]
         [Route("api/Users/add")]
         public HttpResponseMessage AddMembers(UserDTO Student)

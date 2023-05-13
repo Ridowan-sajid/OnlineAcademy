@@ -14,14 +14,9 @@ namespace BLL.DTOs
 
         [Key]
         public int Id { get; set; }
-
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-        [ForeignKey("Course")]
         public int CourseId { get; set; }
 
-        public virtual Course Course { get; set; }
 
     }
 }

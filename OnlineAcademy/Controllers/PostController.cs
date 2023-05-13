@@ -46,6 +46,24 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Posts/{id:int}/comment")]
+        public HttpResponseMessage GetWithComment(int id)
+        {
+            try
+            {
+                var data = PostServices.GetWithComment(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+
         [HttpPost]
         [Route("api/Posts/add")]
         public HttpResponseMessage AddMembers(PostDTO Post)
