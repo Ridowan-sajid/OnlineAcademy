@@ -303,6 +303,10 @@
     <Compile Include="Migrations\202305231825317_addedcourses.designer.cs">
       <DependentUpon>202305231825317_addedcourses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305241716123_deleteStuff.cs" />
+    <Compile Include="Migrations\202305241716123_deleteStuff.designer.cs">
+      <DependentUpon>202305241716123_deleteStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Community.cs" />
@@ -372,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305231825317_addedcourses.resx">
       <DependentUpon>202305231825317_addedcourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305241716123_deleteStuff.resx">
+      <DependentUpon>202305241716123_deleteStuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

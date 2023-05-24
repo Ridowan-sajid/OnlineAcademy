@@ -33,9 +33,6 @@ namespace DAL.Models
         [Required]
         public DateTime JoinDate { get; set; }
 
-        public string FinishedCourse { get; set; }
-        public string UnfinishedCourse { get; set; }
-        public string RunningCourse { get; set; }
 
         public virtual ICollection<UserCommunity> UserCommunities { get; set; }
         public virtual ICollection<UserCourse> UserCourses { get; set; }
