@@ -12,7 +12,6 @@ using System.Web.Http.Cors;
 namespace OnlineAcademy.Controllers
 {
     [EnableCors("*","*","*")]
-    //all,method,shb header
     [Logged]
     public class CommentController : ApiController
     {
@@ -51,6 +50,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+
         [HttpPost]
         [Route("api/comments/add")]
         public HttpResponseMessage AddMembers(CommentDTO comment)
@@ -67,6 +67,7 @@ namespace OnlineAcademy.Controllers
                 
             }
         }
+
 
         [HttpPost]
         [Route("api/comments/update")]

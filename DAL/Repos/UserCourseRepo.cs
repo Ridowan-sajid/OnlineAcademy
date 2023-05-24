@@ -29,7 +29,18 @@ namespace DAL.Repos
 
         public bool Insert(UserCourse obj)
         {
-            db.UserCourses.Add(obj);
+            var uc=db.UserCourses.Add(obj);
+
+            var com= (from c in db.Communities
+                      where c.CourseId == uc.CourseId
+                      select c).FirstOrDefault();
+
+            var userCom = new UserCommunity() {
+                UserId=uc.UserId,
+                CommunityId=com.Id
+            };
+
+            db.UserCommunities.Add(userCom);
             return db.SaveChanges() > 0;
         }
 

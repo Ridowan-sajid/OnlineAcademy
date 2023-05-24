@@ -15,6 +15,7 @@ namespace OnlineAcademy.Controllers
     [Logged]
     public class CommunityController : ApiController
     {
+    
         [HttpGet]
         [Route("api/community")]
         public HttpResponseMessage Get()
@@ -49,6 +50,27 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+
+        [HttpGet]
+        [Route("api/Community/MyCommunity/{id:int}")]
+        public HttpResponseMessage MyCommunity(int id)
+        {
+            try
+            {
+                var data = CommunityServices.MyCommunity(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+
+
+        [AdminAcces]
         [HttpPost]
         [Route("api/community/add")]
         public HttpResponseMessage AddMembers(CommunityDTO comment)
@@ -64,6 +86,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [Authorize(Roles = "TeacherAccess,AdminAcces")]
         [HttpPost]
         [Route("api/community/update")]
         public HttpResponseMessage UpdateMembers(CommunityDTO comment)
@@ -79,7 +102,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [AdminAcces]
         [HttpDelete]
         [Route("api/community/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)

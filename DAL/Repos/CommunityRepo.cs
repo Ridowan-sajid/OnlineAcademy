@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class CommunityRepo : Repo, IRepo<Community, int, bool>
+    internal class CommunityRepo : Repo, IRepo5<Community, int, bool>
     {
         public bool Delete(int id)
         {
@@ -21,6 +21,29 @@ namespace DAL.Repos
         {
             return db.Communities.ToList();
         }
+
+
+        //My Community
+
+        public List<Community> MyCommunity(int id)
+        {
+            var u = (from us in db.UserCommunities
+                     where us.User.Id == id
+                     select us).ToList();
+
+            var communiyList = new List<Community>();
+
+            foreach (var i in u)
+            {
+                communiyList.Add((from c in db.Communities
+                                where c.UserCommunities.Any(uc => uc.UserId == id)
+                                select c).FirstOrDefault());
+            }
+            return communiyList;
+
+        }
+
+
 
         public Community Get(int id)
         {

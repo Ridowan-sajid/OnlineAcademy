@@ -49,6 +49,26 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Courses/MyCourses/{id:int}")]
+        public HttpResponseMessage MyCourses(int id)
+        {
+            try
+            {
+                var data = CourseServices.MyCOurses(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+
+
+        [AdminAcces]
         [HttpPost]
         [Route("api/Courses/add")]
         public HttpResponseMessage AddMembers(CourseDTO Course)
@@ -64,6 +84,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [AdminAcces]
         [HttpPost]
         [Route("api/Courses/update")]
         public HttpResponseMessage UpdateMembers(CourseDTO Course)
@@ -79,7 +100,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [AdminAcces]
         [HttpDelete]
         [Route("api/Courses/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)

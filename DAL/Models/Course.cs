@@ -19,6 +19,8 @@ namespace DAL.Models
         [Required]
         public double Price { get; set; }
 
+        public string status { get; set; }
+
         public virtual ICollection<UserCourse> UserCourses { get; set; }
         public Course()
         {

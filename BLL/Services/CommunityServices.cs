@@ -43,6 +43,29 @@ namespace BLL.Services
 
         }
 
+
+
+
+
+        public static List<CommunityDTO> MyCommunity(int id)
+        {
+            var data = DataAccessFactory.CommunityData().MyCommunity(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Community, CommunityDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<CommunityDTO>>(data);
+            return mapped;
+            //return Convert(data);
+        }
+
+
+
+
+
+
         public static bool Create(CommunityDTO community)
         {
 

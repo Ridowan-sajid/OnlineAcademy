@@ -15,7 +15,8 @@ namespace OnlineAcademy.Controllers
     [Logged]
     public class UserCourseController : ApiController
     {
-
+        /*[Authorize(Roles = "TeacherAccess,AdminAcces")]*/
+        [AdminAcces]
         [HttpGet]
         [Route("api/UserCourses")]
         public HttpResponseMessage Get()
@@ -80,7 +81,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [Authorize(Roles = "TeacherAccess,AdminAcces")]
         [HttpDelete]
         [Route("api/UserCourses/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)

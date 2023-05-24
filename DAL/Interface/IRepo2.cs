@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface
 {
-    public interface IRepo2<TYPE, ID, RET>
+    public interface IRepo2<TYPE, ID, RET>:IRepo<TYPE, ID,RET>
     {
-        List<TYPE> Get();
-        TYPE Get(ID id);
         TYPE Get(string name,string password);
-        RET Insert(TYPE obj);
-        RET Update(TYPE obj);
-        bool Delete(ID id);
+        RET ChangePass(int id, string password, string newPassword);
+        TYPE ForgetPass(string gmail);
+        bool ResetPass(int id, string password);
     }
 }

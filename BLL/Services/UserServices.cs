@@ -40,6 +40,14 @@ namespace BLL.Services
         }
 
 
+
+        public static bool ChangePass(int id,string password, string newPassword)
+        {
+            var res = DataAccessFactory.UserData().ChangePass(id,password,newPassword);
+            return res;
+        }
+
+
         public static UserPostDTO GetWithPost(int id)
         {
             var data = DataAccessFactory.UserData().Get(id);

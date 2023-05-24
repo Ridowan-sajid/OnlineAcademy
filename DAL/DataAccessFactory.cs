@@ -16,11 +16,11 @@ namespace DAL
             return new CommentRepo();
         }
 
-        public static IRepo<Community, int, bool> CommunityData()
+        public static IRepo5<Community, int, bool> CommunityData()
         {
             return new CommunityRepo();
         }
-        public static IRepo<Course, int, bool> CourseData()
+        public static IRepo4<Course, int, bool> CourseData()
         {
             return new CourseRepo();
         }
@@ -47,6 +47,11 @@ namespace DAL
         public static IRepo<Token, string, Token> TokenData()
         {
             return new TokenRepo();
+        }
+
+        public static IRepo3<ResetOTP, string, bool> ResetOTPData()
+        {
+            return new ResetOTPRepo();
         }
     }
 }

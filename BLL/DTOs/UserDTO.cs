@@ -30,11 +30,14 @@ namespace BLL.DTOs
         public string Role { get; set; }
         [Required]
         public DateTime JoinDate { get; set; }
+        public string FinishedCourse { get; set; }
+        public string UnfinishedCourse { get; set; }
+        public string RunningCourse { get; set; }
 
-/*        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }*/
+        /*        public virtual ICollection<UserCommunity> UserCommunities { get; set; }
+                public virtual ICollection<UserCourse> UserCourses { get; set; }
+                public virtual ICollection<Post> Posts { get; set; }
+                public virtual ICollection<Comment> Comments { get; set; }*/
 
 
 

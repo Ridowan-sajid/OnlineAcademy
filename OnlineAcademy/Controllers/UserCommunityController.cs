@@ -50,6 +50,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [AdminAcces]
         [HttpPost]
         [Route("api/UserCommunitys/add")]
         public HttpResponseMessage AddMembers(UserCommunityDTO StudentCommunity)
@@ -65,6 +66,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [AdminAcces]
         [HttpPost]
         [Route("api/UserCommunitys/update")]
         public HttpResponseMessage UpdateMembers(UserCommunityDTO StudentCommunity)
@@ -80,7 +82,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-
+        [AdminAcces]
         [HttpDelete]
         [Route("api/UserCommunitys/delete/{id:int}")]
         public HttpResponseMessage DeleteMembers(int id)

@@ -1,6 +1,7 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
 using OnlineAcademy.Auth;
+using OnlineAcademy.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ using System.Web.Http.Cors;
 namespace OnlineAcademy.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [Logged]
+    
     public class UserController : ApiController
     {
 
+        [AdminAcces]
         [HttpGet]
         [Route("api/Users")]
         public HttpResponseMessage Get()
@@ -33,6 +35,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [Logged]
         [HttpGet]
         [Route("api/Users/{id:int}")]
         public HttpResponseMessage GetM(int id)
@@ -51,7 +54,64 @@ namespace OnlineAcademy.Controllers
         }
 
 
+        [Logged]
+        [HttpPost]
+        [Route("api/Users/Change/{id:int}")]
+        public HttpResponseMessage ChangePass(int id,PasswordModel pm)
+        {
+            try
+            {
+                var data = UserServices.ChangePass(id,pm.Password,pm.newPassword);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
 
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+
+
+        [Logged]
+        [HttpGet]
+        [Route("api/Users/reset/{gmail}")]
+        public HttpResponseMessage ResetPass(string gmail)
+        {
+            try
+            {
+                var data = AuthServices.ResetPass(gmail);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+        [Logged]
+        [HttpPost]
+        [Route("api/Users/set/{id:int}")]
+        public HttpResponseMessage SetPassword(int id,SetPassModel spm)
+        {
+            try
+            {
+                var data = AuthServices.SetPassword(id,spm.Otp,spm.Password);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+
+
+        [AdminAcces]
+        [Logged]
         [HttpGet]
         [Route("api/Users/{id:int}/post")]
         public HttpResponseMessage GetWithPost(int id)
@@ -69,7 +129,8 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-        [AdminAcces]
+
+
         [HttpPost]
         [Route("api/Users/add")]
         public HttpResponseMessage AddMembers(UserDTO Student)
@@ -85,7 +146,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
-        [AdminAcces]
+        [Logged]
         [HttpPost]
         [Route("api/Users/update")]
         public HttpResponseMessage UpdateMembers(UserDTO Student)
@@ -101,6 +162,7 @@ namespace OnlineAcademy.Controllers
             }
         }
 
+        [Logged]
         [AdminAcces]
         [HttpDelete]
         [Route("api/Users/delete/{id:int}")]

@@ -26,6 +26,23 @@ namespace BLL.Services
             //return Convert(data);
         }
 
+
+        public static List<CourseDTO> MyCOurses(int id)
+        {
+            var data = DataAccessFactory.CourseData().MyCourses(id);
+
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Course, CourseDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<CourseDTO>>(data);
+            return mapped;
+            //return Convert(data);
+        }
+
+
+
         public static CourseDTO Get(int id)
         {
             var data=DataAccessFactory.CourseData().Get(id);

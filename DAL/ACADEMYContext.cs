@@ -18,6 +18,7 @@ namespace DAL
         public DbSet<UserCommunity> UserCommunities { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<ResetOTP> ResetOTP { get; set; }
 
 
     }
